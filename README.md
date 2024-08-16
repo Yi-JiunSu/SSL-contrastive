@@ -5,7 +5,7 @@ Codes have been approved for public release; distribution is unlimited. Public A
 
 A manuscript titled "Decoding space radio waves: Self-supervised AI decipher plasma frequency" by Su and Carilli details the construction of the software. 
 
-Please refer to https://doi.org/10.1029/2023RS007907 for the loss functions (focal cross-entroy loss, focal Tversky loss, & Hausdorff morphological erosion loss) used in the downstream task and the prediction metrics (Huasdoff Distance)
+Please refer to https://doi.org/10.1029/2023RS007907 for the loss functions (binary focal cross-entroy loss, focal Tversky loss, & Hausdorff morphological erosion loss) used in the downstream task and the prediction metrics (Huasdoff Distance)
 
 Self-supervised pretext tasks:
   * BYOL - main program train_byol.py with input parameters specified in config_byol.yaml
