@@ -1,0 +1,22 @@
+backbone_arch: resnet18
+# options: resnet18, resnet34, resnet50
+pretrain_dir: '/data1/pytorch/pixcl/runs/fcn_20240306-085000' 
+# Specify a folder containing a pre-trained model to fine-tune. If training from scratch, pass None.
+pretrain_epoch: '81'
+# specify epoch from a pre-trained model
+downstream_arch: 'fcn8s'
+# options are 'fcns', 'fcn8s', 'fcn16s', or 'fcn32s'
+
+image:
+  sizeH: 82
+  sizeW: 100
+  n_class: 1
+  dir: 'TEST/imgs'
+  mask_dir: 'TEST/masks'
+  mask_suffix: '_mask'
+  mask_values: [0, 1]
+
+predict:
+  out_threshold: 0.5
+  out_dir: 'test_rn18pixcl-fake_fcn8s-real'
+  plot: False 

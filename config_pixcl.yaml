@@ -1,0 +1,48 @@
+backbone_arch: resnet18
+# options: resnet18, resnet34, resnet50
+#pretrain_dir: None
+pretrain_dir: 'pixcl_20240411-160136' 
+# Specify a folder containing a pre-trained model to fine-tune. If training from scratch, pass None.
+#pretrain_epoch: None
+pretrain_epoch: '10'
+# specify epoch from a pre-trained model
+opt_method: 'radam'
+
+ppm:
+  num_layers: 1
+  # number of layers for transform function in the pixel propagation model, 1 was optimal
+  gamma: 2
+  # sharpness of the similarity in the pixel propagation model, optimal value of 2
+
+learner:
+  image_sizeH: 82
+  image_sizeW: 100
+  projection_size: 128
+  # size of projection output
+  projection_hidden_size: 512 
+  # sice of projection hidden dimension
+  moving_average_decay: 0.99
+  # exponential moving average decay of target encoder
+  distance_thres: 0.7
+  # ideal value 0.7 stated in the paper
+  similarity_temperature: 0.3
+  # temperatire for the cosine similarity for the pixel contrastive loss
+  alpha: 1.
+  # weight of the pixel propagation loss (pixpro) vs pixel CL loss
+  batch_size: 100 
+  max_epochs: 20 
+  num_workers: None 
+  # for plasma max(num_workers) = 48, None - obtain from os.cpu_count() 
+
+dataset:
+  imgs_dir: '/data2/vap/mockup/fake/imgs'
+  channels: 3 
+
+optimizer:
+  lr: 0.001
+  weight_decay: 0.0004
+
+lr_sch_param:
+  mode: 'min'
+  factor: 0.5
+  patience: 2 

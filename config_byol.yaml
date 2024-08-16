@@ -1,0 +1,38 @@
+backbone_arch: resnet18
+# options: resnet18, resnet34, resnet50
+pretrain_dir: None
+#pretrain_dir: 'byol_20240403-120345' 
+# Specify a folder containing a pre-trained model to fine-tune. If training from scratch, pass None.
+pretrain_epoch: None
+#pretrain_epoch: '3'
+# specify epoch from a pre-trained model
+opt_method: 'radam'
+# option 'adam' 'radam' or 'adam_hd'
+
+learner:
+  image_sizeH: 82
+  image_sizeW: 100
+  projection_size: 128
+  # size of projection output
+  projection_hidden_size: 512 
+  # sice of projection hidden dimension
+  moving_average_decay: 0.99
+  # exponential moving average decay of target encoder
+  batch_size: 40 
+  max_epochs: 20 
+  num_workers: None
+  # for plasma max(num_workers) = 48, None - obtain from os.cpu_count() 
+
+dataset:
+  imgs_dir: '/data2/vap/mockup/fake/imgs'
+  channels: 3 
+
+optimizer:
+  lr: 0.01
+  weight_decay: 0.0004
+
+#  lr_schedular parameters
+lr_sch_param:
+  mode: 'min'
+  factor: 0.1
+  patience: 3
