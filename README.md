@@ -18,7 +18,7 @@ Prediction: main program predict_fcn.py with input parameters specified in confi
 
 Other python source codes are located in the "utils" folder
   * data_loader.py, custom_transform.py, pixcl_multi.py are called by train_byol.py and train_pixcl.py
-  * data_loader_downstream.py, pixcl_multi.py, fcn.py, hausdorff.py and dice score.py are called by downstream_fcn.py
+  * data_loader_downstream.py, pixcl_multi.py, fcn.py, hausdorff.py and dice_score.py are called by downstream_fcn.py
   * data_loader_downstream.py, pixcl_multi.py, fcn.py, and hausdorff.py are called by predict_fcn.py
 
 The software utilized in this project was obtained, modified, and consolidated from the following sources. Our version was meticulously undertaken to ensure precise alignment with the specific requirements and objectives of our investigation.
