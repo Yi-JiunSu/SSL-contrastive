@@ -37,9 +37,10 @@ if __name__ == '__main__':
 
     #online_encoder include instance- (MLP) & pixel-level (ConvMLP) projectors
     online_encoder = NetWrapperMultiLayers(net=resnet).to(device)
-    if torch.cuda.device_count() > 1:
-        print("Let's use", torch.cuda.device_count(), "GPUs!")
-        online_encoder = torch.nn.DataParallel(online_encoder)
+# Not working in a virtural environment yet
+#    if torch.cuda.device_count() > 1:
+#        print("Let's use", torch.cuda.device_count(), "GPUs!")
+#        online_encoder = torch.nn.DataParallel(online_encoder)
 
     # instance level predictor
     online_predictor = MLP(
